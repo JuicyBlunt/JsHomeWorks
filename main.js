@@ -57,5 +57,6 @@ function pyramid() {
     let dashes = "-".repeat(medianNumber - i);
     output += dashes + star + dashes + "\n";
   }
+  console.log(output);
 }
 pyramid();
