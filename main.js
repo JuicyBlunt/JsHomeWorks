@@ -49,12 +49,13 @@ findCustomer();
 console.log(porch, floor);
 
 //=====5======//
-const medianNumber = 6;
+const medianNumber = 5;
 function pyramid() {
+  let output = "";
   for (let i = 1; i <= medianNumber; i++) {
     let star = "*".repeat(i * 2 - 1);
     let dashes = "-".repeat(medianNumber - i);
-    console.log(dashes + star + dashes);
+    output += dashes + star + dashes + "\n";
   }
 }
 pyramid();
