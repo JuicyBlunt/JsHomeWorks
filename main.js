@@ -52,9 +52,9 @@ console.log(porch, floor);
 const medianNumber = 6;
 function pyramid() {
   for (let i = 1; i <= medianNumber; i++) {
-    let str = "-".repeat(medianNumber - i);
-    let str2 = "*".repeat(i * 2 - 1);
-    console.log(str + str2 + str);
+    let star = "*".repeat(i * 2 - 1);
+    let dashes = "-".repeat(medianNumber - i);
+    console.log(dashes + star + dashes);
   }
 }
 pyramid();
