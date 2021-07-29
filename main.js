@@ -25,23 +25,21 @@ function enoughtPaper() {
 }
 console.log(enoughtPaper());
 //=====4======//
-const roomsOnFloor = 3;
-const floors = 9;
-const roomNumber = 456;
+const roomsOnFloor = 4;
+const floors = 5;
+const roomNumber = 100;
 let porch;
 let floor;
 function findCustomer() {
   let entrance = roomNumber / (floors * roomsOnFloor);
   porch = entrance % 1 == 0 ? entrance : entrance - (entrance % 1) + 1;
-  let counter = 0;
-  for (let i = 1; i <= porch; i++) {
-    for (let j = 1; j <= floors; j++) {
-      for (let k = 1; k <= roomsOnFloor; k++) {
-        counter++;
-        if (counter == roomNumber) {
-          floor = j;
-        }
+  let firstRoom = porch * (roomsOnFloor * floors) - roomsOnFloor * floors + 1;
+  for (let i = 1; i <= floors; i++) {
+    for (let j = 1; j <= roomsOnFloor; j++) {
+      if (firstRoom == roomNumber) {
+        floor = i;
       }
+      ++firstRoom;
     }
   }
 }
