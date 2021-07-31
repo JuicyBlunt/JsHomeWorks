@@ -72,3 +72,15 @@ function sumFewestNums(arr) {
 console.log(sumFewestNums(arr));
 
 //======5======//
+
+function arrToBinary(arr) {
+  let result = 0;
+  let reverseArr = arr.reverse();
+  for (let i = 0; i <= reverseArr.length; i++) {
+    if (reverseArr[i] == 1) {
+      result += Math.pow(2, i);
+    }
+  }
+  return result;
+}
+console.log(arrToBinary([1, 1, 1, 0, 0, 1]));
