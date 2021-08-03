@@ -17,8 +17,8 @@ function Emploee(employee) {
     },
     set(value) {
       for (let key in value) {
-        if (this.key) {
-          this.key = value.key;
+        if (this[key]) {
+          this[key] = value[key];
         }
       }
     },
@@ -66,6 +66,3 @@ const getRandomEmployee = (arr) => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 getRandomEmployee(emplyeeConstructArr);
-
-let test = new Emploee(emplyeeArr[0]);
-test.fullInfo = { name: "Вася", salary: 9000 };
