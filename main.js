@@ -116,3 +116,23 @@ Array.prototype.reduce2 = function (callback, initialValue) {
   }
   return startValue;
 };
+Array.prototype.join2 = function (separator) {
+  let newStr = "";
+  if (arguments.length === 0) {
+    return `${this}`;
+  }
+  if (separator === "") {
+    return `${this}`.replace(/,/g, "");
+  }
+  if (this.length === 1) {
+    return this;
+  }
+  for (let i = 0; i < this.length; i++) {
+    if (i + 1 == this.length) {
+      newStr += `${this[i]}`;
+      break;
+    }
+    newStr += `${this[i]}${separator}`;
+  }
+  return newStr;
+};
