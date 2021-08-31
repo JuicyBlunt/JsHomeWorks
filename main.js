@@ -8,7 +8,7 @@ const searchCandidatesByPhoneNumber = (phone) => {
 
 //2//
 const getCandidateById = (id) => {
-  return condidateArr.filter((item) => {
+  return condidateArr.find((item) => {
     if (item._id === id) {
       item.registered = `${new Date(item.registered).getDate()}/${
         new Date(item.registered).getMonth() + 1
@@ -17,7 +17,7 @@ const getCandidateById = (id) => {
     }
   });
 };
-
+console.log(getCandidateById("5e216bc9a6059760578aefa4"));
 //3//
 const sortCandidatesArr = (sortBy) => {
   let regExp = /\D/g;
@@ -37,8 +37,9 @@ const getEyeColorMap = () => {
     acc[item.eyeColor] = [];
     return acc;
   }, {});
-  for (let key in condidateArr) {
-    keys[condidateArr[key].eyeColor].push(condidateArr[key]);
-  }
+  condidateArr.forEach((item) => {
+    keys[item.eyeColor].push(item);
+  });
   return keys;
 };
+console.log(getEyeColorMap());
