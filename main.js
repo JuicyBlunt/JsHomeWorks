@@ -32,13 +32,14 @@ const arr = [
 ];
 //4//
 function insertIntoarr(obj, id) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].id == id) {
-      arr.splice(i, 0, obj);
-      break;
-    }
-  }
+  arr.splice(
+    arr.findIndex((element) => element.id === id),
+    0,
+    obj
+  );
 }
+insertIntoarr(secondObj, 2);
+console.log(arr);
 //5//
 class Condidate {
   constructor(condidate) {
@@ -51,42 +52,43 @@ class Condidate {
 //6//
 function getCompanyNames() {
   let companys = new Set();
-  for (let i = 0; i < condidateArr.length; i++) {
-    companys.add(condidateArr[i].company);
-  }
+  condidateArr.forEach((item) => {
+    companys.add(item.company);
+  });
   return Array.from(companys);
 }
+console.log(getCompanyNames());
 //7//
 function getUsersByYear(year) {
   let arr = [];
-  for (let i = 0; i < condidateArr.length; i++) {
-    if (
-      new Date(Date.parse(condidateArr[i].registered)).getFullYear() === year
-    ) {
-      arr.push(condidateArr[i]._id);
+  condidateArr.forEach((item) => {
+    if (new Date(Date.parse(item.registered)).getFullYear() === +year) {
+      arr.push(item._id);
     }
-  }
+  });
   return arr;
 }
+console.log(getUsersByYear(2015));
 //8//
 function getCondidatesByUnreadMsg(count) {
   let arr = [];
   let regExp = /\b\d+\b/;
-  for (let i = 0; i < condidateArr.length; i++) {
-    if (condidateArr[i].greeting.match(regExp)[0] == count) {
-      arr.push(new Condidate(condidateArr[i]));
+  condidateArr.forEach((item) => {
+    if (+item.greeting.match(regExp)[0] === +count) {
+      arr.push(new Condidate(item));
     }
-  }
+  });
   return arr;
 }
+console.log(getCondidatesByUnreadMsg(8));
 //9//
 function getCondidatesByGender(gender) {
   let arr = [];
-  for (let i = 0; i < condidateArr.length; i++) {
-    if (condidateArr[i].gender == gender) {
-      arr.push(new Condidate(condidateArr[i]));
+  condidateArr.forEach((item) => {
+    if (item.gender === gender) {
+      arr.push(new Condidate(item));
     }
-  }
+  });
   return arr;
 }
 
@@ -96,20 +98,20 @@ Array.prototype.reduce2 = function (callback, initialValue) {
     throw new TypeError("reduce called on null or undefined");
   }
   if (typeof callback !== "function") {
-    throw new TypeError(" callback is not a function");
+    throw new TypeError("callback is not a function");
   }
   let ObjformArr = Object(this);
   let objLength = ObjformArr.length;
   let startValue;
   let i = 0;
   if (arguments.length > 1) {
-    startValue = arguments[1];
+    startValue = initialValue;
   } else {
     startValue = ObjformArr[i++];
   }
 
   while (i < objLength) {
-    if (i in ObjformArr) {
+    if (ObjformArr[i] in ObjformArr) {
       startValue = callback(startValue, ObjformArr[i], i, ObjformArr);
       i++;
     }
