@@ -50,3 +50,6 @@ form .button input:hover {
 .bg-color {
   background-color: aqua;
 }
+.active {
+  display: none;
+}

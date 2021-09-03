@@ -23,7 +23,7 @@ function renderInputs() {
     }
   });
 }
-// renderInputs();
+renderInputs();
 //=============2==============
 function renderTimer() {
   let wrapp = document.createElement("div");
@@ -74,14 +74,9 @@ function initBlock() {
   insertPlace.after(wrapper);
   return [footer, main];
 }
-initBlock();
 function replaceFooter() {
+  let replace = [...initBlock()].reverse();
   let wrapper = document.querySelector("#wrapper");
-  let replace = [
-    document.querySelector("#footer"),
-    document.querySelector("#main"),
-  ].reverse();
-  wrapper.innerHTML = "";
   wrapper.append(...replace);
 }
 replaceFooter();
@@ -118,15 +113,14 @@ function getRecipe() {
       ol.append(li);
     });
     li.append(ol);
-    ol.style.display = "none";
+    ol.classList.add("active");
   });
   wrapper.append(h1, ul);
   document.body.after(wrapper);
   document.addEventListener("click", (e) => {
-    if (e.target.closest("ul")) {
-      e.target.querySelector("ol").style.display = "block";
+    if (e.target.matches("ul>li")) {
+      e.target.querySelector("ol").classList.toggle("active");
     }
   });
 }
-
 getRecipe();
