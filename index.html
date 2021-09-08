@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
+    <div class="header">
+      <h2>Filter by:</h2>
+      <form class="form-container">
+        <div class="checkbox-container">
+          <input type="checkbox" id="male" />
+          <label class="checkbox" for="male">Male</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="female" />
+          <label class="checkbox" for="female">Female</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="alive" />
+          <label class="checkbox" for="alive">Alive</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="dead" />
+          <label class="checkbox" for="dead">Dead</label>
+        </div>
+      </form>
+    </div>
+    <div class="container"></div>
     <script src="main.js"></script>
   </body>
 </html>
