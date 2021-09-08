@@ -99,7 +99,7 @@ function renderCards(...id) {
 }
 function filterCards() {
   let wrapp = document.querySelector(".form-container");
-  wrapp.addEventListener("change", function listener(e) {
+  wrapp.addEventListener("change", (e) => {
     let key =
       e.target.id === "male" || e.target.id === "female" ? "gender" : "status";
     if (
