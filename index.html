@@ -4,9 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
+    <div class="forms">
+      <form name="add" action="#">
+        <h3>Add Event</h3>
+        <label for="event-title">Input ur event text</label>
+        <input
+          type="text"
+          id="event-title"
+          minlength="2"
+          placeholder="Some text"
+        />
+        <label for="timeStart"> Choose start time </label>
+        <input type="range" id="timeStart" min="0" max="540" />
+        <span class="hours">8</span>
+        <label for="timeEnd"> Choose end time </label>
+        <input type="range" id="timeEnd" min="0" max="540" />
+        <span class="minutes">0</span>
+        <label for="color">Choose ur color</label>
+        <input id="color" type="color" />
+        <input id="addEvent" type="submit" value="Add event" />
+      </form>
+
+      <form name="delete" action="#">
+        <h3>Delete Event</h3>
+        <label for="delete"> Event for delete </label>
+        <select id="remove"></select>
+        <input id="deleteEvent" type="submit" value="Delete choosed event" />
+      </form>
+      <form name="change" action="#">
+        <h3>Change Event</h3>
+      </form>
+    </div>
+
+    <div class="calendar">
+      <div class="calendar__wrapper"></div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

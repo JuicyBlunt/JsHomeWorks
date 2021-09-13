@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+.calendar {
+  margin: 0 auto;
+  max-width: 900px;
+  height: 800px;
+}
+.calendar__wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.event {
+  display: flex;
+  min-height: 120px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  max-width: 250px;
+  position: relative;
+}
+.event__time {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50px;
+}
+.event__time p {
+  margin: 0;
+  flex-basis: 50%;
+}
+.event__items {
+  display: flex;
+  max-width: 200px;
+  width: 100%;
+  position: absolute;
+  left: 50px;
+}
+.event__item {
+  z-index: 2;
+  width: 100%;
+  position: relative;
+  border-left: 2px solid #6e9ecf;
+  background-color: #e2ecf5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.forms {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.forms form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.forms form label {
+  padding: 5px 0;
+  border-top: 2px solid aqua;
+}
+.forms form input {
+  padding: 5px;
+  margin-bottom: 5px;
+}
