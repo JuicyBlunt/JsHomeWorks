@@ -66,7 +66,7 @@ function formsHandler(e) {
     let color = document.querySelector("#color").value;
     let obj = {
       start: startTime,
-      duration: endTime,
+      duration: endTime - startTime,
       title: text || "No text",
       bgc: color,
     };
@@ -85,13 +85,17 @@ function formsHandler(e) {
 document.addEventListener("submit", formsHandler);
 
 document.querySelector("#timeStart").oninput = (e) => {
-  document.querySelector(".hours").innerHTML = `${Math.trunc(
-    e.target.value / 60
-  )}:${Math.round(e.target.value % 60)}`;
+  document.querySelector(".hours").innerHTML =
+    `${Math.trunc(e.target.value / 60 + 8)}`.padStart(2, "0") +
+    ":" +
+    `${Math.round(e.target.value % 60)}`.padStart(2, "0");
 };
 
 document.querySelector("#timeEnd").oninput = (e) => {
-  document.querySelector(".minutes").innerHTML = e.target.value;
+  document.querySelector(".minutes").innerHTML =
+    `${Math.trunc(e.target.value / 60 + 8)}`.padStart(2, "0") +
+    ":" +
+    `${Math.round(e.target.value % 60)}`.padStart(2, "0");
 };
 
 initCalendar(start, end);
