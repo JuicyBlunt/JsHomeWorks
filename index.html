@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -19,30 +25,50 @@
           placeholder="Some text"
         />
         <label for="timeStart"> Choose start time </label>
-        <input type="range" id="timeStart" min="0" max="540" />
-        <span class="hours">8:00</span>
+        <input type="range" id="timeStart" min="0" max="540" value="0" />
+        <span>08:00</span>
         <label for="timeEnd"> Choose end time </label>
-        <input type="range" id="timeEnd" min="0" max="540" />
-        <span class="minutes">8:00</span>
-        <label for="color">Choose ur color</label>
-        <input id="color" type="color" />
+        <input type="range" id="timeEnd" min="0" max="540" value="0" />
+        <span>08:00</span>
+        <label for="color">Choose bg color for event</label>
+        <input id="color" type="color" value="#e2ecf5" />
         <input id="addEvent" type="submit" value="Add event" />
       </form>
 
       <form name="delete" action="#">
         <h3>Delete Event</h3>
         <label for="delete"> Event for delete </label>
-        <select id="remove"></select>
+        <select id="remove" size="13"></select>
         <input id="deleteEvent" type="submit" value="Delete choosed event" />
       </form>
+
       <form name="change" action="#">
         <h3>Change Event</h3>
+        <label for="replace"> Choose event for change </label>
+        <select id="replace"></select>
+        <label for="changeTitle">Input ur changed text</label>
+        <input
+          type="text"
+          id="changeTitle"
+          minlength="2"
+          placeholder="Event text"
+        />
+        <label for="changedStart"> Change start time </label>
+        <input type="range" id="changedStart" min="0" max="540" value="0" />
+        <span>08:00</span>
+        <label for="changedEnd"> Change end time </label>
+        <input type="range" id="changedEnd" min="0" max="540" value="0" />
+        <span>08:00</span>
+        <input id="changeEvent" type="submit" value="Change event" />
       </form>
     </div>
+    <hr />
 
     <div class="calendar">
       <div class="calendar__wrapper"></div>
     </div>
+
+    <div class="modal"></div>
     <script src="main.js"></script>
   </body>
 </html>
